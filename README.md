@@ -7,7 +7,7 @@ A distributed system with advanced data flows.
 As the scale of data continues to grow and developments in AI promise to extract even greater value
 from data, applications must increasingly scale horizontally to keep up. In a distributed world,
 having the skills to build and reason about data-intensive, distributed systems will be critical.
-I aim to develop some of these skills through this project.
+I aim to improve some of these skills through this project.
 
 ## Objectives
 
