@@ -1,0 +1,2 @@
+- [ ] Add a more accurate description to the GitHub project
+- [ ] Consider swapping to a more descriptive project name
