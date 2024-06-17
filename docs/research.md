@@ -20,7 +20,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.4: [Kafka Inside Netflix's Keystone Pipeline](https://netflixtechblog.com/kafka-inside-keystone-pipeline-dd5aeabaf6bb)
 - [x] R.5: [Architecture of Netflix](https://kasun-r-weerasinghe.medium.com/architecture-of-netflix-1c38257f1f4a)
 - [x] R.6: [Evolution of the Netflix Data Pipeline](https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905)
-- [ ] R.7: [Netflix: How Apache Kafka Turns Data from Millions into Intelligence](https://www.meritdata-tech.com/resources/blog/digital-engineering-solutions/netflix-apache-kafka-business-intelligence/)
+- [x] R.7: [Netflix: How Apache Kafka Turns Data from Millions into Intelligence](https://www.meritdata-tech.com/resources/blog/digital-engineering-solutions/netflix-apache-kafka-business-intelligence/)
 - [ ] R.8: [Fundamentals of Apache Flink](https://developer.confluent.io/courses/apache-flink/intro/?session_ref=https://www.confluent.io/blog/how-kafka-is-used-by-netflix/&_ga=2.202919186.240425474.1718412748-1986853514.1718412748&_gl=1*1eteoop*_gcl_au*MTY3NDcwNjI1NC4xNzE4NDEyNzQ3*_ga*MTk4Njg1MzUxNC4xNzE4NDEyNzQ4*_ga_D2D3EGKSGD*MTcxODQxMjc0OC4xLjEuMTcxODQxMzExMS4zLjAuMA..)
 - [ ] R.9: [Flink for Stream Processing](https://www.confluent.io/blog/apache-flink-for-stream-processing/)
 - [ ] R.10: [Confluent's Managed Flink Service](https://www.confluent.io/product/flink/)
