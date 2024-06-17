@@ -19,7 +19,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.3: [Netflix blogs related to Kafka](https://netflixtechblog.com/tagged/kafka)
 - [ ] R.4: [Kafka Inside Netflix's Keystone Pipeline](https://netflixtechblog.com/kafka-inside-keystone-pipeline-dd5aeabaf6bb)
 - [ ] R.5: [Architecture of Netflix](https://kasun-r-weerasinghe.medium.com/architecture-of-netflix-1c38257f1f4a)
-- [ ] R.6: [Evolution of the Netflix Data Pipeline](https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905)
+- [x] R.6: [Evolution of the Netflix Data Pipeline](https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905)
 - [ ] R.7: [Netflix: How Apache Kafka Turns Data from Millions into Intelligence](https://www.meritdata-tech.com/resources/blog/digital-engineering-solutions/netflix-apache-kafka-business-intelligence/)
 - [ ] R.8: [Fundamentals of Apache Flink](https://developer.confluent.io/courses/apache-flink/intro/?session_ref=https://www.confluent.io/blog/how-kafka-is-used-by-netflix/&_ga=2.202919186.240425474.1718412748-1986853514.1718412748&_gl=1*1eteoop*_gcl_au*MTY3NDcwNjI1NC4xNzE4NDEyNzQ3*_ga*MTk4Njg1MzUxNC4xNzE4NDEyNzQ4*_ga_D2D3EGKSGD*MTcxODQxMjc0OC4xLjEuMTcxODQxMzExMS4zLjAuMA..)
 - [ ] R.9: [Flink for Stream Processing](https://www.confluent.io/blog/apache-flink-for-stream-processing/)
@@ -44,6 +44,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.28: [Streaming SQL on Data Mesh](https://www.youtube.com/watch?v=TwcWvwU7B64&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=3)
 - [ ] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
 - [ ] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
+- [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 
 ## Open Questions
 
@@ -57,7 +58,18 @@ The checkbox indicates whether I've found a reasonable answer to the question.
 
 ## Notes
 
-- 200 million users at Netflix (R.17)
+- Metrics
+    - 200 million users at Netflix (2023) (R.17)
+    - 500 billion events, ~1.3 PB per day (2016) (R.6)
+    - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
+- Streams
+    - Video viewing activities (R.6)
+    - UI activities (R.6)
+    - Error logs (R.6)
+    - Performance events (R.6)
+    - Troubleshooting and diagnostic events (R.6)
+- Operational metrics flow through a separate pipeline (R.6)
+- Real-time is defined as sub-minute latency (R.6)
 - WAP pattern: write to hidden Iceberg snapshot, audit, publish (R.17)
 - System events are treated as their own data streams (R.17)
 - Keystone stream: kafka topic with a flink "router" that is configured
@@ -66,6 +78,8 @@ by the control plane to output to one or more sinks (R.17)
 - Backfilling: retroactively processing historical records (R.17)
     - Must share conventions in Iceberg sink and kafka source to reproduce message ordering (R.17)
 - Flink is used to dice/prepare data streams for downsteam, real-time data services (R.17)
+- Fronting kafka is the initial intake step, which passes data through Flink routers to
+sinks (including secondary Kafka) (R.6)
 - Tooling
     - Big data querying UI (R.17)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
@@ -73,6 +87,7 @@ by the control plane to output to one or more sinks (R.17)
     - Maestro workflow and job scheduler (R.17)
     - Streaming platform as a service (control plane) (R.17)
     - Mantis for running ad-hoc queries against raw event data (observability) (R.17)
+    - Atlas for telemetry (R.6)
 - Data platform technologies
     - Iceberg (R.17)
     - Spark (SQL, Python, Scala) for batch pipelines (R.17)
