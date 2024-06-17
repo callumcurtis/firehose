@@ -17,7 +17,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.1: [AWS Firehose](https://aws.amazon.com/firehose/)
 - [ ] R.2: [ksqlDB](https://ksqldb.io/)
 - [ ] R.3: [Netflix blogs related to Kafka](https://netflixtechblog.com/tagged/kafka)
-- [ ] R.4: [Kafka Inside Netflix's Keystone Pipeline](https://netflixtechblog.com/kafka-inside-keystone-pipeline-dd5aeabaf6bb)
+- [x] R.4: [Kafka Inside Netflix's Keystone Pipeline](https://netflixtechblog.com/kafka-inside-keystone-pipeline-dd5aeabaf6bb)
 - [ ] R.5: [Architecture of Netflix](https://kasun-r-weerasinghe.medium.com/architecture-of-netflix-1c38257f1f4a)
 - [x] R.6: [Evolution of the Netflix Data Pipeline](https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905)
 - [ ] R.7: [Netflix: How Apache Kafka Turns Data from Millions into Intelligence](https://www.meritdata-tech.com/resources/blog/digital-engineering-solutions/netflix-apache-kafka-business-intelligence/)
@@ -45,6 +45,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
 - [ ] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
 - [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
+- [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
 
 ## Open Questions
 
@@ -60,15 +61,16 @@ The checkbox indicates whether I've found a reasonable answer to the question.
 
 - Metrics
     - 200 million users at Netflix (2023) (R.17)
-    - 500 billion events, ~1.3 PB per day (2016) (R.6)
+    - 700 billion events, ~1.3 PB per day (2016) (R.4, R.6)
     - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
-- Streams
+    - Daily data loss rate of less than 0.01% (2016) (R.4)
+- Keystone pipeline streams
     - Video viewing activities (R.6)
     - UI activities (R.6)
     - Error logs (R.6)
     - Performance events (R.6)
     - Troubleshooting and diagnostic events (R.6)
-- Operational metrics flow through a separate pipeline (R.6)
+- Operational metrics flow through a different pipeline than the Keystone pipeline (R.6)
 - Real-time is defined as sub-minute latency (R.6)
 - WAP pattern: write to hidden Iceberg snapshot, audit, publish (R.17)
 - System events are treated as their own data streams (R.17)
@@ -78,8 +80,16 @@ by the control plane to output to one or more sinks (R.17)
 - Backfilling: retroactively processing historical records (R.17)
     - Must share conventions in Iceberg sink and kafka source to reproduce message ordering (R.17)
 - Flink is used to dice/prepare data streams for downsteam, real-time data services (R.17)
-- Fronting kafka is the initial intake step, which passes data through Flink routers to
-sinks (including secondary Kafka) (R.6)
+- Fronting kafka clusters receive from all producers and pass data through Flink routers to
+sinks (including secondary/consumer Kafka) (R.4, R.6)
+- Samza routes subsets of topics from fronting Kafka to consumer Kafka (R.4)
+- If a message cannot be delivered by a producer after retries, it is dropped (R.4)
+- Archaius is used for dynamically configuring Kafka destinations in producers, but
+non-Java clients use a REST proxy to relay messages to Kafka clusters (R.4)
+- Downstream data services do not directly consume from fronting Kafka clusters to
+enable providing predictable load (R.4)
+- A dedicated ZooKeeper cluster is used for each Kafka cluster (R.4)
+- [Kafka deployment configuration](https://miro.medium.com/v2/resize:fit:720/format:webp/1*Z6lRvLR8ej5krMFUVL4ouA.png) (R.4)
 - Tooling
     - Big data querying UI (R.17)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
@@ -88,6 +98,7 @@ sinks (including secondary Kafka) (R.6)
     - Streaming platform as a service (control plane) (R.17)
     - Mantis for running ad-hoc queries against raw event data (observability) (R.17)
     - Atlas for telemetry (R.6)
+    - Archaius library for static/dynamic configuration management (R.4)
 - Data platform technologies
     - Iceberg (R.17)
     - Spark (SQL, Python, Scala) for batch pipelines (R.17)
@@ -100,6 +111,8 @@ sinks (including secondary Kafka) (R.6)
     - Kafka (R.17)
     - Elasticsearch (R.17)
     - Cassandra (R.17)
+    - Samza (R.4)
+    - ZooKeeper (R.4)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
