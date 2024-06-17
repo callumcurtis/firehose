@@ -82,7 +82,6 @@ by the control plane to output to one or more sinks (R.17)
 - Flink is used to dice/prepare data streams for downsteam, real-time data services (R.17)
 - Fronting kafka clusters receive from all producers and pass data through Flink routers to
 sinks (including secondary/consumer Kafka) (R.4, R.6)
-- Samza routes subsets of topics from fronting Kafka to consumer Kafka (R.4)
 - If a message cannot be delivered by a producer after retries, it is dropped (R.4)
 - Archaius is used for dynamically configuring Kafka destinations in producers, but
 non-Java clients use a REST proxy to relay messages to Kafka clusters (R.4)
@@ -111,7 +110,6 @@ enable providing predictable load (R.4)
     - Kafka (R.17)
     - Elasticsearch (R.17)
     - Cassandra (R.17)
-    - Samza (R.4)
     - ZooKeeper (R.4)
 - Backend services technologies
     - gRPC (R.17)
