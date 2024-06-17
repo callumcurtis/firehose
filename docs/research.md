@@ -21,10 +21,10 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.5: [Architecture of Netflix](https://kasun-r-weerasinghe.medium.com/architecture-of-netflix-1c38257f1f4a)
 - [x] R.6: [Evolution of the Netflix Data Pipeline](https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905)
 - [x] R.7: [Netflix: How Apache Kafka Turns Data from Millions into Intelligence](https://www.meritdata-tech.com/resources/blog/digital-engineering-solutions/netflix-apache-kafka-business-intelligence/)
-- [ ] R.8: [Fundamentals of Apache Flink](https://developer.confluent.io/courses/apache-flink/intro/?session_ref=https://www.confluent.io/blog/how-kafka-is-used-by-netflix/&_ga=2.202919186.240425474.1718412748-1986853514.1718412748&_gl=1*1eteoop*_gcl_au*MTY3NDcwNjI1NC4xNzE4NDEyNzQ3*_ga*MTk4Njg1MzUxNC4xNzE4NDEyNzQ4*_ga_D2D3EGKSGD*MTcxODQxMjc0OC4xLjEuMTcxODQxMzExMS4zLjAuMA..)
+- [ ] R.8: [Fundamentals of Apache Flink](https://developer.confluent.io/courses/apache-flink/intro/)
 - [ ] R.9: [Flink for Stream Processing](https://www.confluent.io/blog/apache-flink-for-stream-processing/)
 - [ ] R.10: [Confluent's Managed Flink Service](https://www.confluent.io/product/flink/)
-- [ ] R.11: [Kafka on Netflix's Content Finance Engineering Team](https://www.confluent.io/blog/how-kafka-is-used-by-netflix/)
+- [x] R.11: [Kafka on Netflix's Content Finance Engineering Team](https://www.confluent.io/blog/how-kafka-is-used-by-netflix/)
 - [ ] R.12: [Data Stacks at Facebook, Netflix, Airbnb, and Pinterest](https://keen.io/blog/architecture-of-giants-data-stacks-at-facebook-netflix-airbnb-and-pinterest/)
 - [ ] R.13: [Message Tracing and Loss Detection For Streaming Data at Netflix](https://netflixtechblog.medium.com/inca-message-tracing-and-loss-detection-for-streaming-data-netflix-de4836fc38c9)
 - [ ] R.14: [Netflix's Engagement Data](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
@@ -46,6 +46,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
 - [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
+- [ ] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
 
 ## Open Questions
 
@@ -59,7 +60,7 @@ The checkbox indicates whether I've found a reasonable answer to the question.
 
 ## Notes
 
-- Metrics
+- Numbers
     - 200 million users at Netflix (2023) (R.17)
     - 700 billion events, ~1.3 PB per day (2016) (R.4, R.6)
     - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
@@ -70,6 +71,14 @@ The checkbox indicates whether I've found a reasonable answer to the question.
     - Error logs (R.6)
     - Performance events (R.6)
     - Troubleshooting and diagnostic events (R.6)
+- Performance metrics
+    - Time end to end, from production of an event until it reaches all sinks (R.11)
+    - Processing lag for every consumer (R.11)
+    - Payload sizes (R.11)
+    - Compute resource utilization efficiency (R.11)
+    - Checkpointing and failure recovery (R.11)
+    - Ability to provide backpressure to sources without crashing (R.11)
+    - Handling event bursts (R.11)
 - Operational metrics flow through a different pipeline than the Keystone pipeline (R.6)
 - Real-time is defined as sub-minute latency (R.6)
 - WAP pattern: write to hidden Iceberg snapshot, audit, publish (R.17)
@@ -89,6 +98,17 @@ non-Java clients use a REST proxy to relay messages to Kafka clusters (R.4)
 enable providing predictable load (R.4)
 - A dedicated ZooKeeper cluster is used for each Kafka cluster (R.4)
 - [Kafka deployment configuration](https://miro.medium.com/v2/resize:fit:720/format:webp/1*Z6lRvLR8ej5krMFUVL4ouA.png) (R.4)
+- Backend services communicate through Kafka pub/sub (R.11)
+- Events have a standard format: UUID, type (CRUD), timestamp, payload (R.11)
+- Change data capture (CDC) propagates database changes as events (R.11)
+- Enrichers consume from Kafka, join the data with additional data from GraphQL/gRPC calls to other services,
+and then place the enriched data onto another Kafka topic (R.11)
+- Enrichers are created using Flink, RocksDB, and ksqlDB (R.11)
+- To avoid misordering events, producers send only the primary ID of the resource that changed.
+During the enrichment process, the source service is queried to get the up-to-date payload
+(delayed materialization) (R.11).
+- Hive for auditing (R.11)
+- Consumers must be idempotent and use a distributed cache with expiry to avoid repeating computation (R.11)
 - Tooling technologies
     - Big data querying UI (R.17)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
@@ -117,6 +137,11 @@ enable providing predictable load (R.4)
     - CockroachDB (R.5)
     - MySQL (R.5)
     - S3 (R.5)
+    - RocksDB (R.11)
+    - ksqlDB (R.11)
+    - Avro (R.11)
+    - Confluent Schema Registry (R.11)
+    - Hive (R.11)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
