@@ -51,6 +51,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
 - [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
 - [ ] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
+- [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
 
 ## Open Questions
 
@@ -115,6 +116,9 @@ During the enrichment process, the source service is queried to get the up-to-da
 (delayed materialization) (R.11).
 - Hive for auditing (R.11)
 - Consumers must be idempotent and use a distributed cache with expiry to avoid repeating computation (R.11)
+- Kappa architecture is becoming dominant (R.37)
+- Batch processing is now a downstream process in the streaming pipeline (R.37)
+- Sources: event sourcing (from applications) or CDC (from DBs) (R.37)
 - Tooling technologies
     - Big data querying UI (R.17)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
@@ -149,6 +153,7 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Confluent Schema Registry (R.11)
     - Hive (replaced by Trino) (R.11, R.34)
     - Polars for single-node data manipulation (R.34)
+    - Beam (R.37)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
