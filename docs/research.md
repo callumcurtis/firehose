@@ -8,7 +8,8 @@ before getting started - I need to focus on some subset of the information.
 
 My approach will be to focus on Netflix's data architecture. They have world-class engineering and have grown over enough
 time to have gained plenty of lessons and learnings. I'll study up on their decisions, wins, and mistakes, select some interesting
-interesting technologies to use and challenging problems to solve, and get to work.
+technologies to use and challenging problems to solve, and get to work. I may still look into other companies' data stacks, but
+only at a high level.
 
 ## Resources
 
@@ -25,7 +26,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.9: [Flink for Stream Processing](https://www.confluent.io/blog/apache-flink-for-stream-processing/)
 - [ ] R.10: [Confluent's Managed Flink Service](https://www.confluent.io/product/flink/)
 - [x] R.11: [Kafka on Netflix's Content Finance Engineering Team](https://www.confluent.io/blog/how-kafka-is-used-by-netflix/)
-- [ ] R.12: [Data Stacks at Facebook, Netflix, Airbnb, and Pinterest](https://keen.io/blog/architecture-of-giants-data-stacks-at-facebook-netflix-airbnb-and-pinterest/)
+- [x] R.12: [Data Stacks at Facebook, Netflix, Airbnb, and Pinterest](https://keen.io/blog/architecture-of-giants-data-stacks-at-facebook-netflix-airbnb-and-pinterest/)
 - [ ] R.13: [Message Tracing and Loss Detection For Streaming Data at Netflix](https://netflixtechblog.medium.com/inca-message-tracing-and-loss-detection-for-streaming-data-netflix-de4836fc38c9)
 - [ ] R.14: [Netflix's Engagement Data](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
 - [ ] R.15: [Databases at Netflix](https://blog.bytebytego.com/p/ep60-netflix-tech-stack-databases)
@@ -144,6 +145,7 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Avro (R.11)
     - Confluent Schema Registry (R.11)
     - Hive (R.11)
+    - Trino (R.12)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
