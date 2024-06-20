@@ -48,7 +48,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
 - [ ] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
-- [ ] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
+- [x] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
 - [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
 - [ ] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 
@@ -147,7 +147,8 @@ During the enrichment process, the source service is queried to get the up-to-da
     - ksqlDB (R.11)
     - Avro (R.11)
     - Confluent Schema Registry (R.11)
-    - Hive (R.11)
+    - Hive (replaced by Trino) (R.11, R.34)
+    - Polars for single-node data manipulation (R.34)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
