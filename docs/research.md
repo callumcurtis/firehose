@@ -30,7 +30,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.13: [Message Tracing and Loss Detection For Streaming Data at Netflix](https://netflixtechblog.medium.com/inca-message-tracing-and-loss-detection-for-streaming-data-netflix-de4836fc38c9)
 - [ ] R.14: [Netflix's Engagement Data](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
 - [ ] R.15: [Databases at Netflix](https://blog.bytebytego.com/p/ep60-netflix-tech-stack-databases)
-- [ ] R.16: [Netflix's Data Tech Stack](https://www.junaideffendi.com/p/netflix-data-tech-stack)
+- [x] R.16: [Netflix's Data Tech Stack](https://www.junaideffendi.com/p/netflix-data-tech-stack)
 - [x] R.17: [The Netflix Data Engineering Stack](https://www.youtube.com/watch?v=QxaOlmv79ls)
 - [ ] R.18: [Netflix's Journey to an Apache Iceberg-Only Data Lake](https://www.youtube.com/watch?v=jMFMEk8jFu8)
 - [ ] R.19: [Netflix's First Data Engineering Summit](https://netflixtechblog.com/our-first-netflix-data-engineering-summit-f326b0589102)
@@ -48,6 +48,9 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
 - [ ] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
+- [ ] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
+- [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
+- [ ] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 
 ## Open Questions
 
@@ -125,10 +128,10 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Jenkins (R.5)
     - Spinnaker (R.17)
 - Data platform technologies
-    - Iceberg (R.17)
-    - Spark (SQL, Python, Scala) for batch pipelines (R.17)
-    - Trino (R.17)
-    - Druid (R.17)
+    - Iceberg (R.16, R.17)
+    - Spark (SQL, Python, Scala) for batch pipelines (R.16, R.17)
+    - Trino (R.12, R.16, R.17)
+    - Druid (R.16, R.17)
     - Snowflake (R.17)
     - Flink (R.17)
     - Titus (R.17)
@@ -139,20 +142,19 @@ During the enrichment process, the source service is queried to get the up-to-da
     - EVCache (R.5)
     - CockroachDB (R.5)
     - MySQL (R.5)
-    - S3 (R.5)
+    - S3 (R.5, R.16)
     - RocksDB (R.11)
     - ksqlDB (R.11)
     - Avro (R.11)
     - Confluent Schema Registry (R.11)
     - Hive (R.11)
-    - Trino (R.12)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
     - Zuul (R.5)
     - Eureka (R.5)
 - Analytics technologies
-    - Tableau (R.5)
+    - Tableau (R.5, R.16)
 - Testing
     - Native unit test libraries for UDFs (R.17)
     - Spark unit test library (R.17)
