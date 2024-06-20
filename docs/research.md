@@ -15,7 +15,7 @@ interesting technologies to use and challenging problems to solve, and get to wo
 The checkbox indicates whether I've reviewed the article/technology.
 
 - [ ] R.1: [AWS Firehose](https://aws.amazon.com/firehose/)
-- [ ] R.2: [ksqlDB](https://ksqldb.io/)
+- [x] R.2: [ksqlDB](https://ksqldb.io/)
 - [ ] R.3: [Netflix blogs related to Kafka](https://netflixtechblog.com/tagged/kafka)
 - [x] R.4: [Kafka Inside Netflix's Keystone Pipeline](https://netflixtechblog.com/kafka-inside-keystone-pipeline-dd5aeabaf6bb)
 - [x] R.5: [Architecture of Netflix](https://kasun-r-weerasinghe.medium.com/architecture-of-netflix-1c38257f1f4a)
@@ -105,6 +105,7 @@ enable providing predictable load (R.4)
 - Enrichers consume from Kafka, join the data with additional data from GraphQL/gRPC calls to other services,
 and then place the enriched data onto another Kafka topic (R.11)
 - Enrichers are created using Flink, RocksDB, and ksqlDB (R.11)
+    - ksqlDB is more accessible than Flink but is closed source (R.2)
 - To avoid misordering events, producers send only the primary ID of the resource that changed.
 During the enrichment process, the source service is queried to get the up-to-date payload
 (delayed materialization) (R.11).
