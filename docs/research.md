@@ -39,7 +39,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.22: [Presentations from Netflix's Data Engineering Summit](https://www.youtube.com/playlist?list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0)
 - [ ] R.23: [Netflix's Tech Stack in 2024](https://medium.com/@romin991/in-depth-analysis-the-technology-stack-of-netflix-in-2024-443e12dc4b2a)
 - [ ] R.24: [Backfill Streaming Data Pipelines in Kappa Architecture](https://www.youtube.com/watch?v=aCIWI5k7deM)
-- [ ] R.25: [Lambda Architecture](https://pradeepl.com/blog/lambda-architecture/)
+- [x] R.25: [Lambda Architecture](https://pradeepl.com/blog/lambda-architecture/)
 - [ ] R.26: [Kappa Archicture](https://pradeepl.com/blog/kappa-architecture/)
 - [ ] R.27: [Data Processing Patterns](https://www.youtube.com/watch?v=vuyjK2TFZNk&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=2)
 - [ ] R.28: [Streaming SQL on Data Mesh](https://www.youtube.com/watch?v=TwcWvwU7B64&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=3)
@@ -120,6 +120,11 @@ During the enrichment process, the source service is queried to get the up-to-da
 - Kappa architecture is becoming dominant (R.37)
 - Batch processing is now a downstream process in the streaming pipeline (R.37)
 - Sources: event sourcing (from applications) or CDC (from DBs) (R.37)
+- Lambda architecture
+    - Idea: data flows through two paths, batch and streaming (R.25)
+    - Batch layer: complete, accurate, idempotent, pre-computes views (S3, Spark) (R.25)
+    - Streaming layer: (Kafka, Flink, Spark Streaming, Storm) (R.25)
+    - Serving layer: API/facade for the batch and streaming layer results (Cassandra, Redis, ZooKeeper) (R.25)
 - Tooling technologies
     - Big data querying UI (R.17)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
