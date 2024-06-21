@@ -63,6 +63,10 @@ The checkbox indicates whether I've found a reasonable answer to the question.
     - [ ] Q.1.3: data joins/enrichment
 - [ ] Q.2: Kappa versus Lambda architecture
 - [ ] Q.3: Delta Lake or other OSS for CDC and backfills
+- [ ] Q.4: Star schema vs snowflake schema
+- [ ] Q.5: How to run performance testing
+- [ ] Q.6: Need k8s? Rancher?
+- [ ] Q.7: Avro-RPC vs gRPC
 
 ## Notes
 
