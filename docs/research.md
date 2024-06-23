@@ -43,7 +43,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.26: [Kappa Archicture](https://pradeepl.com/blog/kappa-architecture/)
 - [x] R.27: [Data Processing Patterns](https://www.youtube.com/watch?v=vuyjK2TFZNk&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=2)
 - [ ] R.28: [Streaming SQL on Data Mesh](https://www.youtube.com/watch?v=TwcWvwU7B64&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=3)
-- [ ] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
+- [x] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
 - [ ] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
 - [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
@@ -158,14 +158,11 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Historical data is treated as a real-time stream (R.26)
 - Tooling technologies
     - Big data querying UI (R.17)
-    - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
-    - Data Auditor (R.17)
     - Maestro workflow and job scheduler (R.17)
     - Streaming platform as a service (control plane) (R.17)
     - Mantis for running ad-hoc queries against raw event data (observability) (R.17)
     - Atlas for telemetry (R.6)
     - Archaius library for static/dynamic configuration management (R.4)
-    - Chaos Monkey (R.5)
     - Jenkins (R.5)
     - Spinnaker (R.17)
 - Data platform technologies
@@ -201,9 +198,16 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Tableau (R.5, R.16)
     - Jupyter (R.18)
 - Testing
-    - Native unit test libraries for UDFs (R.17)
+    - Native unit test libraries for UDFs (R.17, R.29)
+    - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
+    - Data Auditor (R.17)
+    - Chaos Monkey (R.5)
     - Spark unit test library (R.17)
-    - Data audits (R.17)
+    - ScalaCheck / Hypothesis (R.29)
+    - [Base classes for writing tests with Spark](https://github.com/holdenk/spark-testing-base) (R.29)
+    - Supports property testing (if unable to sample production data to generate test input) (R.29)
+    - Audit the data: nulls, distributions, uniqueness, counts (R.29)
+    - Tensorflow Data Validation (R.29)
 
 ## Ideas
 
