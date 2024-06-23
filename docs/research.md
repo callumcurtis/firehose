@@ -38,7 +38,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.21: [In-Depth Look at Netflix's Tech Stack](https://medium.com/bytebytego-system-design-alliance/decoding-netflix-an-in-depth-look-at-the-tech-stack-powering-the-streaming-giant-b0e3c0931ec5)
 - [x] R.22: [Presentations from Netflix's Data Engineering Summit](https://www.youtube.com/playlist?list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0)
 - [ ] R.23: [Netflix's Tech Stack in 2024](https://medium.com/@romin991/in-depth-analysis-the-technology-stack-of-netflix-in-2024-443e12dc4b2a)
-- [ ] R.24: [Backfill Streaming Data Pipelines in Kappa Architecture](https://www.youtube.com/watch?v=aCIWI5k7deM)
+- [x] R.24: [Backfill Streaming Data Pipelines in Kappa Architecture](https://www.youtube.com/watch?v=aCIWI5k7deM)
 - [x] R.25: [Lambda Architecture](https://pradeepl.com/blog/lambda-architecture/)
 - [x] R.26: [Kappa Archicture](https://pradeepl.com/blog/kappa-architecture/)
 - [ ] R.27: [Data Processing Patterns](https://www.youtube.com/watch?v=vuyjK2TFZNk&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=2)
@@ -78,6 +78,8 @@ The checkbox indicates whether I've found a reasonable answer to the question.
     - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
     - Daily data loss rate of less than 0.01% (2016) (R.4)
     - Watch time for most Netflix titles available [here](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
+- Features
+    - Take rate: number of times a title is played / number of times it is shown to the user (R.24)
 - Keystone pipeline streams
     - Video viewing activities (R.6)
     - UI activities (R.6)
@@ -100,8 +102,13 @@ The checkbox indicates whether I've found a reasonable answer to the question.
 - Keystone stream: kafka topic with a flink "router" that is configured
 by the control plane to output to one or more sinks (R.17)
 - Sync data to Iceberg between steps for offline statistical analysis and backfilling (R.17)
-- Backfilling: retroactively processing historical records (R.17)
-    - Must share conventions in Iceberg sink and kafka source to reproduce message ordering (R.17)
+- Backfilling: retroactively processing historical records
+    - Batch Kafka events by time and send to Iceberg table (R.24)
+    - Basic technique: replay events from all batches at the same time (can break if application relies on ordering) (R.24)
+    - Advanced technique: replay events from batches using a lateness tolerance level and local watermark + global watermark (R.24)
+    - Two Flink stacks: production (real-time) and backfill (R.24)
+    - Production (Kafka) / backfill (Iceberg) sources | application (flink) | Kafka | Iceberg (R.24 @ 23:00)
+    - Netflix sees 99.9% consistency with production after backfilling (R.24)
 - Flink is used to dice/prepare data streams for downsteam, real-time data services (R.17)
 - Fronting kafka clusters receive from all producers and pass data through Flink routers to
 sinks (including secondary/consumer Kafka) (R.4, R.6)
