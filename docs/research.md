@@ -57,7 +57,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.40: [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
 - [x] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
 - [x] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
-- [ ] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
+- [x] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
 
 ## Open Questions
 
