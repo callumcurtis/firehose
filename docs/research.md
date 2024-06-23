@@ -28,7 +28,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.11: [Kafka on Netflix's Content Finance Engineering Team](https://www.confluent.io/blog/how-kafka-is-used-by-netflix/)
 - [x] R.12: [Data Stacks at Facebook, Netflix, Airbnb, and Pinterest](https://keen.io/blog/architecture-of-giants-data-stacks-at-facebook-netflix-airbnb-and-pinterest/)
 - [ ] R.13: [Message Tracing and Loss Detection For Streaming Data at Netflix](https://netflixtechblog.medium.com/inca-message-tracing-and-loss-detection-for-streaming-data-netflix-de4836fc38c9)
-- [ ] R.14: [Netflix's Engagement Data](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
+- [x] R.14: [Netflix's Engagement Data](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
 - [ ] R.15: [Databases at Netflix](https://blog.bytebytego.com/p/ep60-netflix-tech-stack-databases)
 - [x] R.16: [Netflix's Data Tech Stack](https://www.junaideffendi.com/p/netflix-data-tech-stack)
 - [x] R.17: [The Netflix Data Engineering Stack](https://www.youtube.com/watch?v=QxaOlmv79ls)
@@ -75,6 +75,7 @@ The checkbox indicates whether I've found a reasonable answer to the question.
     - 700 billion events, ~1.3 PB per day (2016) (R.4, R.6)
     - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
     - Daily data loss rate of less than 0.01% (2016) (R.4)
+    - Watch time for most Netflix titles available [here](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
 - Keystone pipeline streams
     - Video viewing activities (R.6)
     - UI activities (R.6)
