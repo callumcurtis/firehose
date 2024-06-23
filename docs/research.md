@@ -52,7 +52,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
 - [x] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 - [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
-- [ ] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
+- [x] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
 - [x] R.39: [Data Mesh Architecture](https://pradeepl.com/blog/data-mesh-architecture/)
 
 ## Open Questions
@@ -198,6 +198,7 @@ During the enrichment process, the source service is queried to get the up-to-da
 - Analytics technologies
     - Tableau (R.5, R.16)
     - Jupyter (R.18)
+    - Apache SuperSet (R.38)
 - Testing
     - Native unit test libraries for UDFs (R.17, R.29)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
