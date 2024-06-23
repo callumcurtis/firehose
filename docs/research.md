@@ -54,7 +54,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
 - [x] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
 - [x] R.39: [Data Mesh Architecture](https://pradeepl.com/blog/data-mesh-architecture/)
-- [ ] R.40: [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
+- [x] R.40: [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
 - [ ] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
 - [ ] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
 - [ ] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
@@ -172,6 +172,7 @@ During the enrichment process, the source service is queried to get the up-to-da
      - CI/CD (R.33)
      - Design for failure of services (R.33)
      - Monitor for load and failures (R.33)
+     - Be conservative in what you do, and liberal in what you accept from others (R.40)
 - Tooling technologies
     - Big data querying UI (R.17)
     - Maestro workflow and job scheduler (R.17)
