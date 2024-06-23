@@ -41,7 +41,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.24: [Backfill Streaming Data Pipelines in Kappa Architecture](https://www.youtube.com/watch?v=aCIWI5k7deM)
 - [x] R.25: [Lambda Architecture](https://pradeepl.com/blog/lambda-architecture/)
 - [x] R.26: [Kappa Archicture](https://pradeepl.com/blog/kappa-architecture/)
-- [ ] R.27: [Data Processing Patterns](https://www.youtube.com/watch?v=vuyjK2TFZNk&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=2)
+- [x] R.27: [Data Processing Patterns](https://www.youtube.com/watch?v=vuyjK2TFZNk&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=2)
 - [ ] R.28: [Streaming SQL on Data Mesh](https://www.youtube.com/watch?v=TwcWvwU7B64&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=3)
 - [ ] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
 - [ ] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
@@ -78,8 +78,9 @@ The checkbox indicates whether I've found a reasonable answer to the question.
     - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
     - Daily data loss rate of less than 0.01% (2016) (R.4)
     - Watch time for most Netflix titles available [here](https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report)
-- Features
+- Analysis
     - Take rate: number of times a title is played / number of times it is shown to the user (R.24)
+    - Sessionization: ends after 30 mins of inactivity (R.27)
 - Keystone pipeline streams
     - Video viewing activities (R.6)
     - UI activities (R.6)
@@ -109,6 +110,15 @@ by the control plane to output to one or more sinks (R.17)
     - Two Flink stacks: production (real-time) and backfill (R.24)
     - Production (Kafka) / backfill (Iceberg) sources | application (flink) | Kafka | Iceberg (R.24 @ 23:00)
     - Netflix sees 99.9% consistency with production after backfilling (R.24)
+- A workflow is a set of tasks, a task can be a job, a job can be an ETL job (R.27)
+- Table ready signal: point in time up to which data in a table is valid and ready (within the context of batch processing) (R.27)
+- Concurrent incremental pattern
+    - Lower latency than hourly ETL (e.g., 10 minutes) (R.27)
+    - Use a watermark for processed data in the source table (R.27)
+    - Queuing service triggers periodically and sends partitions to queue to trigger processing on those partitions (R.27)
+- Extractor pattern: large dataset with many consumers interested in different subsets (also applies to streams)
+    - Offer YAML DSL to combine multiple extraction jobs into one (R.27)
+- Intermediate state: to handle unbounded windows, rollover unresolved state to the next window (e.g., sessionization) (R.27)
 - Flink is used to dice/prepare data streams for downsteam, real-time data services (R.17)
 - Fronting kafka clusters receive from all producers and pass data through Flink routers to
 sinks (including secondary/consumer Kafka) (R.4, R.6)
