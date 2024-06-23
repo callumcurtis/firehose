@@ -59,15 +59,15 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
 - [x] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
 
-## Open Questions
+## Questions
 
 The checkbox indicates whether I've found a reasonable answer to the question.
 
 - [ ] Q.1: designing direct communication between microservices, outside the regular data pipeline flow
     - [ ] Q.1.1: fan-out
-    - [ ] Q.1.2: communication protocols
+    - [x] Q.1.2: communication protocols
     - [ ] Q.1.3: data joins/enrichment
-- [ ] Q.2: Kappa versus Lambda architecture
+- [x] Q.2: Kappa versus Lambda architecture
 - [ ] Q.3: Delta Lake or other OSS for CDC and backfills
 - [ ] Q.4: Star schema vs snowflake schema
 - [ ] Q.5: How to run performance testing
