@@ -45,7 +45,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.28: [Streaming SQL on Data Mesh](https://www.youtube.com/watch?v=TwcWvwU7B64&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=3)
 - [x] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
 - [x] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
-- [ ] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
+- [x] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
 - [ ] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
 - [x] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
@@ -72,7 +72,7 @@ The checkbox indicates whether I've found a reasonable answer to the question.
 
 ## Notes
 
-- Numbers
+- Numbers (R.31)
     - 200 million users at Netflix (2023) (R.17)
     - 700 billion events, ~1.3 PB per day (2016) (R.4, R.6)
     - 8 million events, ~24 GB per second during peak hours (2016) (R.6)
@@ -147,6 +147,7 @@ During the enrichment process, the source service is queried to get the up-to-da
 - Principles: storage and compute separation, data platform component composability, single source of truth, cloud native (R.18)
 - CDC from OLTP stores (Cassandra, Amazon RDS, EVCache, CockroachDB) through Flink and Kafka to OLAP warehouse in S3 (R.18, R.39)
 - Iceberg tables stored with an S3 prefix matching the table name (R.18)
+- Producers should never block when sending to Kafka (R.31)
 - Lambda architecture
     - Idea: data flows through two paths, batch and streaming (R.25)
     - Batch layer: complete, accurate, idempotent, pre-computes views (S3, Spark) (R.25)
@@ -176,7 +177,7 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Kafka (R.17, R.18, R.36)
     - Elasticsearch (R.17, R.36)
     - Cassandra (R.17, R.18)
-    - ZooKeeper (R.4)
+    - ZooKeeper (R.4, R.31)
     - EVCache (R.5, R.18)
     - CockroachDB (R.5, R.18)
     - MySQL (R.5)
