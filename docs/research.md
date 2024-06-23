@@ -32,7 +32,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.15: [Databases at Netflix](https://blog.bytebytego.com/p/ep60-netflix-tech-stack-databases)
 - [x] R.16: [Netflix's Data Tech Stack](https://www.junaideffendi.com/p/netflix-data-tech-stack)
 - [x] R.17: [The Netflix Data Engineering Stack](https://www.youtube.com/watch?v=QxaOlmv79ls)
-- [ ] R.18: [Netflix's Journey to an Apache Iceberg-Only Data Lake](https://www.youtube.com/watch?v=jMFMEk8jFu8)
+- [x] R.18: [Netflix's Journey to an Apache Iceberg-Only Data Lake](https://www.youtube.com/watch?v=jMFMEk8jFu8)
 - [ ] R.19: [Netflix's First Data Engineering Summit](https://netflixtechblog.com/our-first-netflix-data-engineering-summit-f326b0589102)
 - [ ] R.20: [Netflix Tech Blog](https://netflixtechblog.com/)
 - [ ] R.21: [In-Depth Look at Netflix's Tech Stack](https://medium.com/bytebytego-system-design-alliance/decoding-netflix-an-in-depth-look-at-the-tech-stack-powering-the-streaming-giant-b0e3c0931ec5)
@@ -52,6 +52,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
 - [x] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 - [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
+- [ ] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
 
 ## Open Questions
 
@@ -125,6 +126,9 @@ During the enrichment process, the source service is queried to get the up-to-da
 - Kappa architecture is becoming dominant (R.37)
 - Batch processing is now a downstream process in the streaming pipeline (R.37)
 - Sources: event sourcing (from applications) or CDC (from DBs) (R.37)
+- Principles: storage and compute separation, data platform component composability, single source of truth, cloud native (R.18)
+- CDC from online data stores (Cassandra, Amazon RDS, EVCache, CockroachDB) through Flink and Kafka to warehouse in S3 (R.18)
+- Iceberg tables stored with an S3 prefix matching the table name (R.18)
 - Lambda architecture
     - Idea: data flows through two paths, batch and streaming (R.25)
     - Batch layer: complete, accurate, idempotent, pre-computes views (S3, Spark) (R.25)
@@ -143,19 +147,19 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Jenkins (R.5)
     - Spinnaker (R.17)
 - Data platform technologies
-    - Iceberg (R.16, R.17)
-    - Spark (SQL, Python, Scala) for batch pipelines (R.16, R.17)
-    - Trino (R.12, R.16, R.17)
-    - Druid (R.16, R.17)
+    - Iceberg (R.16, R.17, R.18)
+    - Spark (SQL, Python, Scala) for ETL/batch pipelines (R.16, R.17, R.18)
+    - Trino for interactive analytics (R.12, R.16, R.17, R.18)
+    - Druid for real-time aggregated dashboards (R.16, R.17, R.18)
     - Snowflake (R.17)
-    - Flink (R.17, R.36)
+    - Flink (R.17, R.18, R.36)
     - Titus (R.17)
-    - Kafka (R.17, R.36)
+    - Kafka (R.17, R.18, R.36)
     - Elasticsearch (R.17, R.36)
-    - Cassandra (R.17)
+    - Cassandra (R.17, R.18)
     - ZooKeeper (R.4)
-    - EVCache (R.5)
-    - CockroachDB (R.5)
+    - EVCache (R.5, R.18)
+    - CockroachDB (R.5, R.18)
     - MySQL (R.5)
     - S3 (R.5, R.16)
     - RocksDB (R.11)
@@ -165,6 +169,7 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Hive (replaced by Trino) (R.11, R.34)
     - Polars for single-node data manipulation (R.34)
     - Beam (R.37)
+    - Amazon RDS (R.18)
 - Backend services technologies
     - gRPC (R.17)
     - Spring Boot (R.17)
@@ -172,6 +177,7 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Eureka (R.5)
 - Analytics technologies
     - Tableau (R.5, R.16)
+    - Jupyter (R.18)
 - Testing
     - Native unit test libraries for UDFs (R.17)
     - Spark unit test library (R.17)
