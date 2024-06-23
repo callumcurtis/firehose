@@ -56,7 +56,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.39: [Data Mesh Architecture](https://pradeepl.com/blog/data-mesh-architecture/)
 - [x] R.40: [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
 - [x] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
-- [ ] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
+- [x] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
 - [ ] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
 
 ## Open Questions
@@ -167,6 +167,7 @@ During the enrichment process, the source service is queried to get the up-to-da
      - Organized around business capability / domain rather than technology (R.33)
      - Split based on independent replacement and upgradeability (R.33)
      - If two services often change together, consider merging them (R.33)
+     - Services may differ on their domain models, in other words, having bounded context (R.42)
      - Product (entire lifecycle) teams rather project teams (just development) (R.33)
      - Often eventual consistency over transactions (R.33)
      - CI/CD (R.33)
