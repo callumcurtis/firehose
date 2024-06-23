@@ -40,7 +40,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.23: [Netflix's Tech Stack in 2024](https://medium.com/@romin991/in-depth-analysis-the-technology-stack-of-netflix-in-2024-443e12dc4b2a)
 - [ ] R.24: [Backfill Streaming Data Pipelines in Kappa Architecture](https://www.youtube.com/watch?v=aCIWI5k7deM)
 - [x] R.25: [Lambda Architecture](https://pradeepl.com/blog/lambda-architecture/)
-- [ ] R.26: [Kappa Archicture](https://pradeepl.com/blog/kappa-architecture/)
+- [x] R.26: [Kappa Archicture](https://pradeepl.com/blog/kappa-architecture/)
 - [ ] R.27: [Data Processing Patterns](https://www.youtube.com/watch?v=vuyjK2TFZNk&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=2)
 - [ ] R.28: [Streaming SQL on Data Mesh](https://www.youtube.com/watch?v=TwcWvwU7B64&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=3)
 - [ ] R.29: [Building Reliable Data Pipelines](https://www.youtube.com/watch?v=uWmJxbhI304&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=4)
@@ -134,6 +134,10 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Batch layer: complete, accurate, idempotent, pre-computes views (S3, Spark) (R.25)
     - Streaming layer: (Kafka, Flink, Spark Streaming, Storm) (R.25)
     - Serving layer: API/facade for the batch and streaming layer results (Cassandra, Redis, ZooKeeper) (R.25)
+- Kappa architecture
+    - All processing done on a single real-time stream (no batch layer like in Lambda architecture) (R.26)
+    - Data sources | stream processing | data store | applications (R.26)
+    - Historical data is treated as a real-time stream (R.26)
 - Tooling technologies
     - Big data querying UI (R.17)
     - Dataflow mocking tool for creating sampled inputs for unit tests (R.17)
@@ -182,4 +186,10 @@ During the enrichment process, the source service is queried to get the up-to-da
     - Native unit test libraries for UDFs (R.17)
     - Spark unit test library (R.17)
     - Data audits (R.17)
+
+## Ideas
+
+- Notifications
+- Recommendations, clustering, etc.
+- Combine multiple review sources
 
