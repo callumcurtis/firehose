@@ -55,7 +55,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
 - [x] R.39: [Data Mesh Architecture](https://pradeepl.com/blog/data-mesh-architecture/)
 - [x] R.40: [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
-- [ ] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
+- [x] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
 - [ ] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
 - [ ] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
 
