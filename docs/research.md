@@ -47,13 +47,17 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.30: [Start Stop Continue for Optimizing Complex ETL Jobs](https://www.youtube.com/watch?v=Dr8LMn-nJGc&list=PLSECvWLlUYeF06QK5FOOELvgKdap3cQf0&index=7)
 - [x] R.31: [Netflix Handles Data Streams Up to 8 Million Events/Second](https://www.youtube.com/watch?v=Kc-7eIfaK04)
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
-- [ ] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
+- [x] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
 - [x] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
 - [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
 - [x] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 - [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
 - [x] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
 - [x] R.39: [Data Mesh Architecture](https://pradeepl.com/blog/data-mesh-architecture/)
+- [ ] R.40: [Tolerant Reader](https://martinfowler.com/bliki/TolerantReader.html)
+- [ ] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
+- [ ] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
+- [ ] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
 
 ## Open Questions
 
@@ -157,6 +161,17 @@ During the enrichment process, the source service is queried to get the up-to-da
     - All processing done on a single real-time stream (no batch layer like in Lambda architecture) (R.26)
     - Data sources | stream processing | data store | applications (R.26)
     - Historical data is treated as a real-time stream (R.26)
+- Microservices architecture
+     - Services > libraries as they are individually deployable (R.33)
+     - Service may consist of multiple processes that are developed and deployed together (R.33)
+     - Organized around business capability / domain rather than technology (R.33)
+     - Split based on independent replacement and upgradeability (R.33)
+     - If two services often change together, consider merging them (R.33)
+     - Product (entire lifecycle) teams rather project teams (just development) (R.33)
+     - Often eventual consistency over transactions (R.33)
+     - CI/CD (R.33)
+     - Design for failure of services (R.33)
+     - Monitor for load and failures (R.33)
 - Tooling technologies
     - Big data querying UI (R.17)
     - Maestro workflow and job scheduler (R.17)
