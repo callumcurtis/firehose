@@ -53,6 +53,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 - [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
 - [ ] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
+- [x] R.39: [Data Mesh Architecture](https://pradeepl.com/blog/data-mesh-architecture/)
 
 ## Open Questions
 
@@ -127,7 +128,7 @@ During the enrichment process, the source service is queried to get the up-to-da
 - Batch processing is now a downstream process in the streaming pipeline (R.37)
 - Sources: event sourcing (from applications) or CDC (from DBs) (R.37)
 - Principles: storage and compute separation, data platform component composability, single source of truth, cloud native (R.18)
-- CDC from online data stores (Cassandra, Amazon RDS, EVCache, CockroachDB) through Flink and Kafka to warehouse in S3 (R.18)
+- CDC from OLTP stores (Cassandra, Amazon RDS, EVCache, CockroachDB) through Flink and Kafka to OLAP warehouse in S3 (R.18, R.39)
 - Iceberg tables stored with an S3 prefix matching the table name (R.18)
 - Lambda architecture
     - Idea: data flows through two paths, batch and streaming (R.25)
