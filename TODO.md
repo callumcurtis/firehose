@@ -1,4 +1,4 @@
-- [ ] Research data engineering and distributed system best practices
+- [x] Research data engineering and distributed system best practices
 - [ ] Create a design document for the project (architecture, tech, features, KPIs)
 - [ ] Expand this todo list using the design document
 - [ ] Add a more accurate description to the GitHub project
