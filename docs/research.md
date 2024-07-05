@@ -73,6 +73,7 @@ The checkbox indicates whether I've found a reasonable answer to the question.
 - [ ] Q.5: How to run performance testing
 - [ ] Q.6: Need k8s? Rancher?
 - [ ] Q.7: Avro-RPC vs gRPC
+- [ ] Q.8: Is using something like [Ibis](https://github.com/ibis-project/ibis) or [Fugue](https://github.com/fugue-project/fugue) a good idea for this project?
 
 ## Notes
 
