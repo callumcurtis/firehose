@@ -41,3 +41,12 @@ and movie data, and the other generating recommendations
 - [ ] C.5.1: Reviews are streamed into a Cassandra database
 - [ ] C.5.2: CDC is used to propagate reviews to the first Kafka topic
 
+## S.4: Idempotency and Ordering
+
+### I.6: Review Service
+
+- [ ] C.6.1: A review service streams reviews to the Cassandra database
+- [ ] C.6.2: Review events are sent with a primary ID instead of the data
+- [ ] C.6.3: The enrichment Flink application retrieves the latest data for that primary ID
+from the review service (delayed materialization)
+
