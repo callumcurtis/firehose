@@ -76,3 +76,8 @@ Cassandra
 - [ ] C.10.2: Data is audited in batches in the Iceberg tables used for backfilling
 - [ ] C.10.3: Tensorflow Data Validation is used for auditing the Iceberg tables in batches
 
+## S.9: I.11: Clickstream Data
+
+Idea: synthesize user interaction events, stream them into the system, sessionize them, and
+incorporate the data into recommendation generation.
+
