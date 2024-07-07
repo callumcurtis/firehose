@@ -49,7 +49,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [ ] R.32: [Atlas: Netflix's Primary Telemetry Platform](https://netflixtechblog.com/introducing-atlas-netflixs-primary-telemetry-platform-bd31f4d8ed9a)
 - [x] R.33: [Microservices](https://martinfowler.com/articles/microservices.html)
 - [x] R.34: [Data Processing in 21st Century](https://www.junaideffendi.com/p/data-processing-in-21st-century)
-- [ ] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
+- [x] R.35: [How Netflix uses Druid for Real-Time Insights to Ensure a High-Quality Experience](https://netflixtechblog.com/how-netflix-uses-druid-for-real-time-insights-to-ensure-a-high-quality-experience-19e1e8568d06)
 - [x] R.36: [Data Mesh - A Data Movement and Processing Platform @ Netflix](https://netflixtechblog.com/data-mesh-a-data-movement-and-processing-platform-netflix-1288bcab2873)
 - [x] R.37: [5 Real-Time Pipeline Architectures](https://www.junaideffendi.com/p/5-real-time-pipeline-architecture)
 - [x] R.38: [Navigating the Netflix Data Deluge: The Imperative of Effective Data Management](https://netflixtechblog.medium.com/navigating-the-netflix-data-deluge-the-imperative-of-effective-data-management-e39af70f81f7)
@@ -58,6 +58,7 @@ The checkbox indicates whether I've reviewed the article/technology.
 - [x] R.41: [Consumer-Driven Contracts](https://martinfowler.com/articles/consumerDrivenContracts.html)
 - [x] R.42: [Bounded Context](https://martinfowler.com/bliki/BoundedContext.html)
 - [x] R.43: [Polyglot Persistence](https://martinfowler.com/bliki/PolyglotPersistence.html)
+- [x] R.44: [What it takes to build a real-time recommendation system](https://www.tinybird.co/blog-posts/real-time-recommendation-system)
 
 ## Questions
 
