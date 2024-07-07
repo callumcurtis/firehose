@@ -70,3 +70,9 @@ applications
 - [ ] C.9.1: Recommendations from the Flink application are sent to Druid in addition to
 Cassandra
 
+## S.8: I.10: Data Auditing
+
+- [ ] C.10.1: Data is audited in real-time within Flink applications
+- [ ] C.10.2: Data is audited in batches in the Iceberg tables used for backfilling
+- [ ] C.10.3: Tensorflow Data Validation is used for auditing the Iceberg tables in batches
+
