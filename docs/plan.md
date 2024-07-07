@@ -30,3 +30,9 @@ in the database
 - [ ] C.3.3: The Flink service retrieves movie and user data using Avro RPC calls to the movie
 and user services
 
+### I.4: Enrichment Extraction
+
+- [ ] C.4.1: The Flink application is split into two, one enriching the reviews with user
+and movie data, and the other generating recommendations
+- [ ] C.4.2: A second Kafka topic is used between the two Flink applications
+
