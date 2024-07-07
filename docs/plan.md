@@ -1,6 +1,6 @@
 # Plan
 
-This document breaks the project down into 11 increments across 8 stages.
+This document breaks the project down into 11 increments across 9 stages.
 
 ## S.1: I.1: MVP
 
@@ -41,12 +41,17 @@ and movie data, and the other generating recommendations
 - [ ] C.5.1: Reviews are streamed into a Cassandra database
 - [ ] C.5.2: CDC is used to propagate reviews to the first Kafka topic
 
-## S.4: Idempotency and Ordering
-
-### I.6: Review Service
+## S.4: I.6: Ordering
 
 - [ ] C.6.1: A review service streams reviews to the Cassandra database
 - [ ] C.6.2: Review events are sent with a primary ID instead of the data
 - [ ] C.6.3: The enrichment Flink application retrieves the latest data for that primary ID
 from the review service (delayed materialization)
+
+## S.5: I.7: Idempotency
+
+- [ ] C.7.1: Separate EVCaches store the IDs of processed events for the Flink applications
+(with TTLs)
+- [ ] C.7.2: Flink applications use their EVCaches to avoid reprocessing events
+- [ ] C.7.3: Kafka uses at-least-once delivery
 
