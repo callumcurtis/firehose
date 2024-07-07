@@ -36,3 +36,8 @@ and user services
 and movie data, and the other generating recommendations
 - [ ] C.4.2: A second Kafka topic is used between the two Flink applications
 
+## S.3: I.5: Change Data Capture (CDC)
+
+- [ ] C.5.1: Reviews are streamed into a Cassandra database
+- [ ] C.5.2: CDC is used to propagate reviews to the first Kafka topic
+
