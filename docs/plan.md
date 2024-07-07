@@ -23,3 +23,10 @@ in the database
 - [ ] C.2.2: A CockroachDB database stores user data
 - [ ] C.2.3: The Flink application reads directly from these databases to enrich the review data
 
+### I.3: Metadata Services
+
+- [ ] C.3.1: A service encapsulates the movie data
+- [ ] C.3.2: A service encapsulates the user data
+- [ ] C.3.3: The Flink service retrieves movie and user data using Avro RPC calls to the movie
+and user services
+
