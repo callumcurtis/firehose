@@ -55,3 +55,13 @@ from the review service (delayed materialization)
 - [ ] C.7.2: Flink applications use their EVCaches to avoid reprocessing events
 - [ ] C.7.3: Kafka uses at-least-once delivery
 
+## S.6: I.8: Backfilling
+
+- [ ] C.8.1: Events from Kafka to the enrichment Flink application are synced to an Iceberg
+table
+- [ ] C.8.2: Events from Kafka to the recommendation Flink application are synced to an
+Iceberg table
+- [ ] C.8.3: The Iceberg tables have garbage collection
+- [ ] C.8.4: Historical data can be backfilled from the Iceberg tables to the Flink
+applications
+
