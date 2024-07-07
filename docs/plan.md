@@ -15,6 +15,8 @@ in the database
 - [ ] C.1.6: K3S is used for deployment
 - [ ] C.1.7: Argo CD is used to sync code changes with the K3S cluster
 
+![planned system architecture after I.1](./assets/i.1-architecture.drawio.svg)
+
 ## S.2: Enrichment
 
 ### I.2: Metadata Databases
