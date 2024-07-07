@@ -65,3 +65,8 @@ Iceberg table
 - [ ] C.8.4: Historical data can be backfilled from the Iceberg tables to the Flink
 applications
 
+## S.7: I.9: OLAP
+
+- [ ] C.9.1: Recommendations from the Flink application are sent to Druid in addition to
+Cassandra
+
