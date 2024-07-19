@@ -19,3 +19,15 @@ At a very high level, my objectives for this project are the following.
 To accomplish these objectives, I'll need to decide what to build, why, and how.
 To answer these questions, some [research](./docs/research.md) will be needed.
 
+## Usage
+
+To run the dev stack:
+
+```bash
+cp .env.template .env
+
+# fill out the .env file
+
+docker compose -f deploy/dev.yaml --env-file .env up
+```
+
