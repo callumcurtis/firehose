@@ -16,6 +16,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
+        # TODO1: Swap to using cachix/devenv to compose environments
         devShells.default = pkgs.mkShell {
           inputsFrom = [
             firehose-tools-kafka.devShells.${system}.default
