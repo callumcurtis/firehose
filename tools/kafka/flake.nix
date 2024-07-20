@@ -1,5 +1,5 @@
 {
-  description = "firehose";
+  description = "Tools for Kafka";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
