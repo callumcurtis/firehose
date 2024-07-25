@@ -1,64 +1,93 @@
-/**
- * Copyright 2020 Confluent Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-use futures::future::Future;
-use rdkafka::error::KafkaError;
-use rdkafka::message::OwnedMessage;
+// From: https://github.com/fede1024/rust-rdkafka/blob/e69c2aa40c944637922f1736533beccf79ac43f5/examples/simple_producer.rs
+
+use std::time::Duration;
+
+use clap::{App, Arg};
+use log::info;
+
+use rdkafka::config::ClientConfig;
+use rdkafka::message::{Header, OwnedHeaders};
 use rdkafka::producer::{FutureProducer, FutureRecord};
-use std::boxed::Box;
+use rdkafka::util::get_rdkafka_version;
+
+use crate::utils::setup_logger;
 
 mod utils;
 
-fn log_produce_result(
-    topic: &str,
-    result: Result<(i32, i64), (KafkaError, OwnedMessage)>,
-) -> Result<(), ()> {
-    result
-        .and_then(|(p, o)| {
-            println!(
-                "Successfully produced record to topic {} partition [{}] @ offset {}",
-                topic, p, o
-            );
-            Ok(())
-        })
-        .map_err(|(err, _)| eprintln!("kafka error: {}", err))
-}
+async fn produce(brokers: &str, topic_name: &str) {
+    let producer: &FutureProducer = &ClientConfig::new()
+        .set("bootstrap.servers", brokers)
+        .set("message.timeout.ms", "5000")
+        .create()
+        .expect("Producer creation error");
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let (topic, config) = utils::get_config()?;
-    let producer: FutureProducer = config.create()?;
+    // This loop is non blocking: all messages will be sent one after the other, without waiting
+    // for the results.
+    let futures = (0..5)
+        .map(|i| async move {
+            // The send operation on the topic returns a future, which will be
+            // completed once the result or failure from Kafka is received.
+            let delivery_status = producer
+                .send(
+                    FutureRecord::to(topic_name)
+                        .payload(&format!("Message {}", i))
+                        .key(&format!("Key {}", i))
+                        .headers(OwnedHeaders::new().insert(Header {
+                            key: "header_key",
+                            value: Some("header_value"),
+                        })),
+                    Duration::from_secs(0),
+                )
+                .await;
 
-    let messages = (0..9)
-        .map(|msg| {
-            let value = msg.to_string();
-            println!("Preparing to produce record: {} {}", "alice", value);
-            producer.send(
-                FutureRecord::to(&topic)
-                    .payload(value.as_bytes())
-                    .key("alice"),
-                0,
-            )
+            // This will be executed when the result is received.
+            info!("Delivery status for message {} received", i);
+            delivery_status
         })
         .collect::<Vec<_>>();
 
-    for msg in messages {
-        msg.wait()
-            .map_err(|err| eprintln!("error producing message: {}", err))
-            .and_then(|result| log_produce_result(&topic, result))
-            .ok();
+    // This loop will wait until all delivery statuses have been received.
+    for future in futures {
+        info!("Future completed. Result: {:?}", future.await);
     }
+}
 
-    Ok(())
+#[tokio::main]
+async fn main() {
+    let matches = App::new("producer example")
+        .version(option_env!("CARGO_PKG_VERSION").unwrap_or(""))
+        .about("Simple command line producer")
+        .arg(
+            Arg::with_name("brokers")
+                .short("b")
+                .long("brokers")
+                .help("Broker list in kafka format")
+                .takes_value(true)
+                .default_value("localhost:9092"),
+        )
+        .arg(
+            Arg::with_name("log-conf")
+                .long("log-conf")
+                .help("Configure the logging format (example: 'rdkafka=trace')")
+                .takes_value(true),
+        )
+        .arg(
+            Arg::with_name("topic")
+                .short("t")
+                .long("topic")
+                .help("Destination topic")
+                .takes_value(true)
+                .required(true),
+        )
+        .get_matches();
+
+    setup_logger(true, matches.value_of("log-conf"));
+
+    let (version_n, version_s) = get_rdkafka_version();
+    info!("rd_kafka_version: 0x{:08x}, {}", version_n, version_s);
+
+    let topic = matches.value_of("topic").unwrap();
+    let brokers = matches.value_of("brokers").unwrap();
+
+    produce(brokers, topic).await;
 }

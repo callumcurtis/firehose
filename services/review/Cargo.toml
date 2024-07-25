@@ -1,0 +1,18 @@
+[package]
+name    = "review-service"
+edition = "2018"
+version = "0.1.0"
+
+[dependencies]
+clap = "2.18.0"
+env_logger = "0.9.0"
+chrono = "0.4.0"
+log = "0.4.8"
+# TODO: remove pinned version once tokio-macros is updated and permits build with latest tokio
+tokio = { version = "=1.38.1", features = ["rt", "time", "macros", "rt-multi-thread"] }
+rdkafka = { version = "0.36.2", features = ["cmake-build"] }
+
+[[bin]]
+name = "producer"
+path = "src/producer.rs"
+
