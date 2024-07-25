@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  scripts.deploy-dev.exec = "docker compose -f ${./dev.yaml} up";
+  scripts.dev.exec = "docker compose -f ${./dev.yaml} $@";
 }
