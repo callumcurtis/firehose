@@ -55,3 +55,12 @@ services:
       KAFKA_CLUSTERS_0_METRICS_PORT: 9999
       DYNAMIC_CONFIG_ENABLED: 'true'
 
+  # TODO(C.1.7): swap to declarative initialization w/ gitops
+  kafka-init-topics:
+    image: confluentinc/cp-kafka:7.3.2
+    depends_on:
+      - kafka0
+    command: "bash -c 'echo Waiting for Kafka to be ready... && \
+               cub kafka-ready -b kafka0:19092 1 30 && \
+               kafka-topics --create --topic $KAFKA_REVIEW_TOPIC --partitions 1 --replication-factor 1 --if-not-exists --bootstrap-server kafka0:19092'"
+
