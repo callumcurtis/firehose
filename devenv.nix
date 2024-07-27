@@ -16,4 +16,6 @@
     EOF
     echo
   '';
+
+  scripts.dev.exec = "docker compose -f ${./deploy/dev.yaml} $@";
 }
