@@ -9,19 +9,28 @@
   outputs = { nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        overlays = [
+          (final: prev:
+            {
+              dev = final.writeShellApplication {
+                name = "dev";
+                text = "docker compose -f ${./deploy/dev.yaml} \"$@\"";
+              };
+            }
+          )
+        ];
+        pkgs = import nixpkgs { inherit overlays system; };
       in
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
+            dev
             jdk22
             cargo
             cmake
           ];
 
           # TODO: setup pre-commit hooks for rust and nix
-          # TODO: write shell application to run docker compose
-          # TODO: write shell application to list scripts
         };
       });
 }
