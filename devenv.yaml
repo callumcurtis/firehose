@@ -5,4 +5,3 @@ inputs:
 
 imports:
   - ./services/review
-  - ./tools/kafka

@@ -1,6 +1,8 @@
 { pkgs, lib, config, ... }:
 
 {
+  packages = with pkgs; [ jdk22 ];
+
   dotenv.enable = true;
 
   languages.nix.enable = true;
@@ -17,5 +19,6 @@
     echo
   '';
 
-  scripts.dev.exec = "docker compose -f ${./deploy/dev.yaml} $@";
+  scripts.dev.exec =
+    "docker compose -f ${./deploy/dev.yaml} --env-file ${./.env} $@";
 }
