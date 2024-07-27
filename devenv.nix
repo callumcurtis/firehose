@@ -1,9 +1,14 @@
 { pkgs, lib, config, ... }:
 
 {
-  packages = with pkgs; [ jdk22 ];
+  packages = with pkgs; [ jdk22 cargo cmake ];
 
   dotenv.enable = true;
+
+  languages.rust.enable = true;
+  pre-commit.settings.rust.cargoManifestPath =
+    builtins.toString ./services/review/Cargo.toml;
+  pre-commit.hooks.rustfmt.enable = true;
 
   languages.nix.enable = true;
   pre-commit.hooks.nixfmt.enable = true;
